@@ -1,10 +1,7 @@
 package ru.tjournal.api.sdk.client;
 
 import com.google.gson.Gson;
-import ru.tjournal.api.sdk.action.Entries;
-import ru.tjournal.api.sdk.action.Payments;
-import ru.tjournal.api.sdk.action.Timeline;
-import ru.tjournal.api.sdk.action.Users;
+import ru.tjournal.api.sdk.action.*;
 import ru.tjournal.api.sdk.http.HttpTransportClient;
 
 public class TJApiClient {
@@ -65,6 +62,10 @@ public class TJApiClient {
 
     public Entries entries() {
         return new Entries(this);
+    }
+
+    public Tweets tweets() {
+        return new Tweets(this);
     }
 
     public Gson getGson() {
