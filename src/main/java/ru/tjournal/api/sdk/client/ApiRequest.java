@@ -22,21 +22,18 @@ import java.util.Map;
  */
 public abstract class ApiRequest<T> {
 
-    private final String url;
     private final TransportClient client;
     private final Gson gson;
     private final Type responseClass;
     private final int retryAttempts;
 
     /**
-     * @param url           full url without query string
      * @param client        client to use for api calls
      * @param gson          gson
      * @param responseClass type of response class
      * @param retryAttempts num of error reattempts
      */
-    protected ApiRequest(String url, TransportClient client, Gson gson, Type responseClass, int retryAttempts) {
-        this.url = url;
+    protected ApiRequest(TransportClient client, Gson gson, Type responseClass, int retryAttempts) {
         this.client = client;
         this.gson = gson;
         this.responseClass = responseClass;
