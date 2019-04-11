@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.client;
 
+import javax.ws.rs.core.UriBuilder;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
@@ -16,23 +17,20 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
 
     private final Map<String, String> params = new HashMap<>();
 
+    private final Map<String, String> paths = new HashMap<>();
+
+    private final String url;
+
     /**
      * Creates builder instance to build api requests
+     *
      * @param client TJ api client
      * @param method api method name
-     * @param type type of method response
-     * @param  isPathParams is path param or not
+     * @param type   type of method response
      */
-    protected QueryBuilder(TJApiClient client, String method, Type type, boolean isPathParams) {
-
-        super(
-                client.getApiEndpoint() + client.getApiVersion() + method + "/",
-                client.getTransportClient(),
-                client.getGson(),
-                type,
-                client.getErrorRetryAttempts(),
-                isPathParams
-        );
+    protected QueryBuilder(TJApiClient client, String method, Type type) {
+        super(client.getApiEndpoint() + client.getApiVersion() + method + "/", client.getTransportClient(), client.getGson(), type, client.getErrorRetryAttempts());
+        this.url = client.getApiEndpoint() + client.getApiVersion() + method + "/";
     }
 
     /**
@@ -64,14 +62,26 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
 
     /**
      * Sets parameter and returns this
-     * @param key param name
+     *
+     * @param key   param name
      * @param value param value
      * @return this
      */
-    protected R unsafe(String key, String value) {
+    protected R unsafePath(String key, String value) {
+        paths.put(key, value);
+        return _this();
+    }
+
+    protected R unsafeParam(String key, String value) {
         params.put(key, value);
         return _this();
     }
+
+    protected R unsafeParam(String key, long count) {
+        params.put(key, Long.toString(count));
+        return _this();
+    }
+
 
     /**
      * Get reference to this object
@@ -86,6 +96,27 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
      * @return list of names
      */
     protected abstract Collection<String> essentialKeys();
+
+    /**
+     * Get list of required path params names.
+     * @return list of names
+     */
+    protected abstract Collection<String> essentialPathKeys();
+
+    @Override
+    public String buildPath() {
+
+        if (!paths.keySet().containsAll(essentialPathKeys())) {
+            throw new IllegalArgumentException("Not all the keys are passed: essential keys are " + essentialKeys());
+        }
+
+        if (paths.isEmpty()) {
+            return url;
+        }
+
+        UriBuilder builder = UriBuilder.fromPath(url);
+        return builder.buildFromMap(paths).toASCIIString();
+    }
 
     @Override
     public String buildBody() {

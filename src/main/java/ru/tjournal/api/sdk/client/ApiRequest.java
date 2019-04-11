@@ -28,24 +28,20 @@ public abstract class ApiRequest<T> {
     private final Gson gson;
     private final Type responseClass;
     private final int retryAttempts;
-    private final boolean isPathParams;
 
     /**
-     *
-     * @param url full url without query string
-     * @param client client to use for api calls
-     * @param gson gson
+     * @param url           full url without query string
+     * @param client        client to use for api calls
+     * @param gson          gson
      * @param responseClass type of response class
      * @param retryAttempts num of error reattempts
-     * @param isPathParams is path params, e.g. user/{id}, otherwise query params, e.g. /?id=ID
      */
-    protected ApiRequest(String url, TransportClient client, Gson gson, Type responseClass, int retryAttempts, boolean isPathParams) {
+    protected ApiRequest(String url, TransportClient client, Gson gson, Type responseClass, int retryAttempts) {
         this.url = url;
         this.client = client;
         this.gson = gson;
         this.responseClass = responseClass;
         this.retryAttempts = retryAttempts;
-        this.isPathParams = isPathParams;
     }
 
     /**
@@ -96,18 +92,9 @@ public abstract class ApiRequest<T> {
 
         try {
 
-            Map<String, Object> params = build();
+            String url = buildPath();
 
-
-            ClientResponse response;
-
-
-            if (isPathParams) {
-                UriBuilder builder = UriBuilder.fromPath(url);
-                response = client.get(builder.buildFromMap(params).toASCIIString());
-            } else {
-                response = client.get(url, params);
-            }
+            ClientResponse response = client.get(url, build());
 
             if (HttpStatus.SC_OK != response.getStatusCode()) {
                 throw new ClientException(String.format("Internal API server error. Response code: %d. Message: %s", response.getStatusCode(), response.getContent()));
@@ -140,8 +127,17 @@ public abstract class ApiRequest<T> {
 
     /**
      * Builds body for the request.
+     *
      * @return string representation of body
      */
     public abstract String buildBody();
+
+    /**
+     * If url has path params, e.g. user/{id}, replaces them with real params
+     * and returns built url.
+     *
+     * @return ready to use url
+     */
+    public abstract String buildPath();
 
 }

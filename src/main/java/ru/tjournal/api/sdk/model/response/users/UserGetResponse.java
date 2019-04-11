@@ -12,4 +12,6 @@ public class UserGetResponse {
     @SerializedName("url")
     private String url;
 
+    private String name;
+
 }

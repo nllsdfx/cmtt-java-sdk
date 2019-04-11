@@ -1,6 +1,7 @@
 package ru.tjournal.api.sdk.client;
 
 import com.google.gson.Gson;
+import ru.tjournal.api.sdk.action.Timeline;
 import ru.tjournal.api.sdk.action.Users;
 import ru.tjournal.api.sdk.http.HttpTransportClient;
 
@@ -48,6 +49,10 @@ public class TJApiClient {
 
     public Users users() {
         return new Users(this);
+    }
+
+    public Timeline timeline() {
+        return new Timeline(this);
     }
 
     public Gson getGson() {

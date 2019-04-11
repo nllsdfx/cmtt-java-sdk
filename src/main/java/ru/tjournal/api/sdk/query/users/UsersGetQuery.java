@@ -14,11 +14,11 @@ public class UsersGetQuery extends QueryBuilder<UsersGetQuery, UserGetResponse> 
 
 
     public UsersGetQuery(TJApiClient client) {
-        super(client, "user/{id}", UserGetResponse.class, true);
+        super(client, "user/{id}", UserGetResponse.class);
     }
 
     public UsersGetQuery by(String id) {
-        return unsafe("id", id);
+        return unsafePath("id", id);
     }
 
     @Override
@@ -28,6 +28,11 @@ public class UsersGetQuery extends QueryBuilder<UsersGetQuery, UserGetResponse> 
 
     @Override
     protected Collection<String> essentialKeys() {
+        return Collections.emptyList();
+    }
+
+    @Override
+    protected Collection<String> essentialPathKeys() {
         return Collections.singletonList("id");
     }
 }
