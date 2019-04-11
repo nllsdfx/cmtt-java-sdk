@@ -1,11 +1,11 @@
-package ru.tjournal.api.sdk.model.response.timeline;
+package ru.tjournal.api.sdk.model.response.entry;
 
 import lombok.Getter;
 import ru.tjournal.api.sdk.model.Author;
 import ru.tjournal.api.sdk.model.Likes;
 
 @Getter
-public class TimelineGetResponse {
+public class Entry {
 
     private String id;
     private String title;

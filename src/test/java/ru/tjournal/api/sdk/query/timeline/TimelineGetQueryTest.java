@@ -8,7 +8,7 @@ import org.junit.experimental.categories.Category;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.exception.ApiException;
 import ru.tjournal.api.sdk.exception.ClientException;
-import ru.tjournal.api.sdk.model.response.timeline.TimelineGetResponse;
+import ru.tjournal.api.sdk.model.response.entry.Entry;
 import ru.tjournal.api.sdk.util.IntegrationTest;
 
 import java.util.Collections;
@@ -29,9 +29,9 @@ public class TimelineGetQueryTest {
                 .sorting("recent")
                 .count(1)
                 .offset(0)
-                .execute()).thenReturn(Collections.singletonList(new TimelineGetResponse()));
+                .execute()).thenReturn(Collections.singletonList(new Entry()));
 
-        List<TimelineGetResponse> list = query
+        List<Entry> list = query
                 .category("index")
                 .sorting("recent")
                 .count(1)
@@ -53,7 +53,7 @@ public class TimelineGetQueryTest {
 
         TJApiClient client = new TJApiClient("test_token");
 
-        List<TimelineGetResponse> responseList = client
+        List<Entry> responseList = client
                 .timeline().get()
                 .count(10)
                 .category("index")
@@ -63,7 +63,7 @@ public class TimelineGetQueryTest {
         assertNotNull(responseList);
         assertEquals(10, responseList.size());
 
-        for (TimelineGetResponse item : responseList) {
+        for (Entry item : responseList) {
             assertNotNull(item.getAuthor());
             assertNotNull(item.getTitle());
             assertNotNull(item.getId());
