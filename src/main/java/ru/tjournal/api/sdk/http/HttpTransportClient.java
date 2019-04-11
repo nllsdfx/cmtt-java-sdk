@@ -10,6 +10,7 @@ import ru.tjournal.api.sdk.client.ClientResponse;
 import ru.tjournal.api.sdk.client.TransportClient;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,7 +19,10 @@ import java.util.Map;
  */
 public final class HttpTransportClient implements TransportClient {
 
+    private final Map<String, String> headers;
+
     private HttpTransportClient() {
+        headers = new HashMap<>();
     }
 
     @Override
@@ -39,6 +43,11 @@ public final class HttpTransportClient implements TransportClient {
     @Override
     public ClientResponse post(String url, Map<String, Object> body) throws IOException {
         return doRequest(HttpMethod.POST, url, body, true);
+    }
+
+    @Override
+    public void addHeader(String key, String value) {
+        headers.put(key, value);
     }
 
     private ClientResponse doRequest(String url, HttpMethod method) throws IOException {
@@ -73,7 +82,7 @@ public final class HttpTransportClient implements TransportClient {
         }
 
         try {
-            HttpResponse<String> response = request.asString();
+            HttpResponse<String> response = request.headers(headers).asString();
             return new ClientResponse(response.getStatus(), response.getBody(), response.getHeaders());
 
         } catch (UnirestException ex) {

@@ -17,4 +17,6 @@ public interface TransportClient {
 
     ClientResponse post(String url, Map<String, Object> body) throws IOException;
 
+    void addHeader(String key, String value);
+
 }

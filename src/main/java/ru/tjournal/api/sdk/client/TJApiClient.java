@@ -46,6 +46,8 @@ public class TJApiClient {
         } else {
             this.apiEnpoint = tjApiEndpoint;
         }
+
+        transportClient.addHeader("X-Device-Token", getToken());
     }
 
     public Users users() {
