@@ -41,7 +41,7 @@ public abstract class ApiRequest<T> {
     }
 
     /**
-     * Executes call to an api. By default executes get response.
+     * Executes call to an api. By default executes by response.
      *
      * @return pojo represents received response.
      * @throws ClientException if any errors occurred

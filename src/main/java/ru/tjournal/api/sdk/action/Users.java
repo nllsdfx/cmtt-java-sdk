@@ -4,7 +4,7 @@ import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.query.users.UsersGetQuery;
 
 /**
- * Entry point for users api
+ * Entries point for users api
  */
 public class Users extends Action {
 
