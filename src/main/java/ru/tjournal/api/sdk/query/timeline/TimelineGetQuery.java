@@ -13,7 +13,7 @@ import java.util.List;
 public class TimelineGetQuery extends QueryBuilder<TimelineGetQuery, List<Entry>> {
 
     public TimelineGetQuery(TJApiClient client) {
-        super(client, "entry/{category}/{sorting}", Utils.buildParametrizedType(List.class, Entry.class));
+        super(client, "timeline/{category}/{sorting}", Utils.buildParametrizedType(List.class, Entry.class));
     }
 
 

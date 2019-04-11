@@ -10,7 +10,6 @@ import ru.tjournal.api.sdk.exception.ClientException;
 import ru.tjournal.api.sdk.model.response.ApiError;
 import ru.tjournal.api.sdk.util.StringUtils;
 
-import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
