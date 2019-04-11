@@ -1,9 +1,11 @@
 package ru.tjournal.api.sdk.model;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+import java.util.List;
+
+@Data
 public class Author {
 
     private String id;
@@ -24,4 +26,6 @@ public class Author {
     private String avatarUrl;
 
     private long karma;
+
+    private List<SocialAccount> socialAccounts;
 }

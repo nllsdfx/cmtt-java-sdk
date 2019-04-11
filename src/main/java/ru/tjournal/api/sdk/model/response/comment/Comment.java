@@ -1,11 +1,15 @@
 package ru.tjournal.api.sdk.model.response.comment;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
+import lombok.Data;
 import ru.tjournal.api.sdk.model.Author;
 import ru.tjournal.api.sdk.model.Likes;
+import ru.tjournal.api.sdk.model.Media;
+import ru.tjournal.api.sdk.model.response.entry.Entry;
 
-@Getter
+import java.util.List;
+
+@Data
 public class Comment {
 
     private String id;
@@ -22,5 +26,9 @@ public class Comment {
     private boolean isEdited;
     @SerializedName("source_id")
     private int sourceId;
+    private List<Media> media;
+    private Entry entry;
+    @SerializedName("load_more")
+    private CommentsLoadMore loadMore;
 
 }
