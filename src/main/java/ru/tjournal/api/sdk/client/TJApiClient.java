@@ -2,6 +2,7 @@ package ru.tjournal.api.sdk.client;
 
 import com.google.gson.Gson;
 import ru.tjournal.api.sdk.action.Entries;
+import ru.tjournal.api.sdk.action.Payments;
 import ru.tjournal.api.sdk.action.Timeline;
 import ru.tjournal.api.sdk.action.Users;
 import ru.tjournal.api.sdk.http.HttpTransportClient;
@@ -56,6 +57,10 @@ public class TJApiClient {
 
     public Timeline timeline() {
         return new Timeline(this);
+    }
+
+    public Payments payments() {
+        return new Payments(this);
     }
 
     public Entries entries() {
