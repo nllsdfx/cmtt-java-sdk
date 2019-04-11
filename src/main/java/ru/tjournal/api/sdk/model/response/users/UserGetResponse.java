@@ -1,14 +1,14 @@
 package ru.tjournal.api.sdk.model.response.users;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
+import lombok.Data;
 import ru.tjournal.api.sdk.model.AdvancedAccess;
 import ru.tjournal.api.sdk.model.Counters;
 import ru.tjournal.api.sdk.model.SocialAccount;
 
 import java.util.List;
 
-@Getter
+@Data
 public class UserGetResponse {
 
     @SerializedName("id")
