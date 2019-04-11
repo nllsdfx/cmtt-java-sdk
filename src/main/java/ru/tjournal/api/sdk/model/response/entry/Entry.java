@@ -1,10 +1,13 @@
 package ru.tjournal.api.sdk.model.response.entry;
 
+import lombok.Data;
 import lombok.Getter;
-import ru.tjournal.api.sdk.model.Author;
-import ru.tjournal.api.sdk.model.Likes;
+import ru.tjournal.api.sdk.model.*;
+import ru.tjournal.api.sdk.model.response.comment.Comment;
 
-@Getter
+import java.util.List;
+
+@Data
 public class Entry {
 
     private String id;
@@ -25,6 +28,15 @@ public class Entry {
     private boolean isEditorial;
     private boolean isPinned;
     private String audioUrl;
+    private Cover cover;
+    private String introInFeed;
+    private List<Similar> similar;
+    private long hitsCount;
+    private List<Comment> commentsPreview;
+    private List<Badge> badges;
+    private List<String> commentatorsAvatars;
+    private Subsite subsite;
+
 
 
 
