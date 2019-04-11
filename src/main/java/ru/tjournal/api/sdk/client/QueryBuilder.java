@@ -77,8 +77,8 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
         return _this();
     }
 
-    protected R unsafeParam(String key, long count) {
-        params.put(key, Long.toString(count));
+    protected R unsafeParam(String key, long value) {
+        params.put(key, Long.toString(value));
         return _this();
     }
 
