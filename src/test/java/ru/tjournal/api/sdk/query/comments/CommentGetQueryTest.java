@@ -52,7 +52,7 @@ public class CommentGetQueryTest {
 
         }
 
-        // has to throw exception (comments are closed for the token test)
+        // has to throw exception (comments are closed for the invalid token "test")
         client.entries().comments("93076").sorting("recent").execute();
 
     }
