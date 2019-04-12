@@ -22,7 +22,7 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
     private final String url;
 
     /**
-     * Creates builder instance to build api requests
+     * Creates builder instance to buildParams api requests
      *
      * @param client TJ api client
      * @param method api method name
@@ -120,11 +120,11 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
 
     @Override
     public String buildBody() {
-        return mapToGetString(build());
+        return mapToGetString(buildParams());
     }
 
     @Override
-    public Map<String, Object> build() {
+    public Map<String, Object> buildParams() {
 
         if (!params.keySet().containsAll(essentialKeys())) {
             throw new IllegalArgumentException("Not all the keys are passed: essential keys are " + essentialKeys());

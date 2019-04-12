@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+import com.mashape.unirest.http.HttpMethod;
 import org.apache.http.HttpStatus;
 import ru.tjournal.api.sdk.exception.ApiException;
 import ru.tjournal.api.sdk.exception.ClientException;
@@ -26,6 +27,7 @@ public abstract class ApiRequest<T> {
     private final Gson gson;
     private final Type responseClass;
     private final int retryAttempts;
+    private HttpMethod httpMethod;
 
     /**
      * @param client        client to use for api calls
@@ -38,6 +40,7 @@ public abstract class ApiRequest<T> {
         this.gson = gson;
         this.responseClass = responseClass;
         this.retryAttempts = retryAttempts;
+        this.httpMethod = HttpMethod.GET;
     }
 
     /**
@@ -90,7 +93,13 @@ public abstract class ApiRequest<T> {
 
             String url = buildPath();
 
-            ClientResponse response = client.get(url, build());
+            ClientResponse response;
+
+            if (httpMethod == HttpMethod.POST) {
+                response = client.post(url, buildBody(), buildParams());
+            } else {
+                response = client.get(url, buildParams());
+            }
 
             if (HttpStatus.SC_OK != response.getStatusCode()) {
                 throw new ClientException(String.format("Internal API server error. Response code: %d. Message: %s", response.getStatusCode(), response.getContent()));
@@ -114,12 +123,16 @@ public abstract class ApiRequest<T> {
 
     }
 
+    protected void setHttpMethod(HttpMethod method) {
+        this.httpMethod = method;
+    }
+
     /**
      * Builds params for the request.
      *
      * @return string representation of params
      */
-    public abstract Map<String, Object> build();
+    public abstract Map<String, Object> buildParams();
 
     /**
      * Builds body for the request.

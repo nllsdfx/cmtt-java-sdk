@@ -32,7 +32,7 @@ public final class HttpTransportClient implements TransportClient {
 
     @Override
     public ClientResponse get(String url, Map<String, Object> params) throws IOException {
-        return doRequest(HttpMethod.GET, url, params, false);
+        return doRequest(HttpMethod.GET, url, params, null);
     }
 
     @Override
@@ -41,8 +41,13 @@ public final class HttpTransportClient implements TransportClient {
     }
 
     @Override
-    public ClientResponse post(String url, Map<String, Object> body) throws IOException {
-        return doRequest(HttpMethod.POST, url, body, true);
+    public ClientResponse post(String url, String body) throws IOException {
+        return doRequest(HttpMethod.POST, url, null, body);
+    }
+
+    @Override
+    public ClientResponse post(String url, String body, Map<String, Object> params) throws IOException {
+        return doRequest(HttpMethod.POST, url, params, body);
     }
 
     @Override
@@ -51,10 +56,11 @@ public final class HttpTransportClient implements TransportClient {
     }
 
     private ClientResponse doRequest(String url, HttpMethod method) throws IOException {
-        return doRequest(method, url, null, false);
+        return doRequest(method, url, null, null);
     }
 
-    private ClientResponse doRequest(HttpMethod method, String url, Map<String, Object> params, boolean isBody) throws IOException {
+
+    private ClientResponse doRequest(HttpMethod method, String url, Map<String, Object> params, String body) throws IOException {
 
         HttpRequest request;
 
@@ -72,14 +78,14 @@ public final class HttpTransportClient implements TransportClient {
                 request = Unirest.get(url);
         }
 
-        if (params != null && !params.isEmpty()) {
 
-            if (isBody && request instanceof HttpRequestWithBody) {
+            if (body != null && !body.isEmpty() && request instanceof HttpRequestWithBody) {
                 ((HttpRequestWithBody) request).body(params);
-            } else {
+            }
+
+            if (params != null && !params.isEmpty()) {
                 request.queryString(params);
             }
-        }
 
         try {
             HttpResponse<String> response = request.headers(headers).asString();
