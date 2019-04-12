@@ -19,10 +19,16 @@ import java.util.Map;
  */
 public final class HttpTransportClient implements TransportClient {
 
+    private static final String USER_AGENT = "Java TJ SDK/1.0-SNAPSHOT";
+    private static final String FORM_CONTENT_TYPE = "application/x-www-form-urlencoded";
+
+
     private final Map<String, String> headers;
 
     private HttpTransportClient() {
         headers = new HashMap<>();
+        addHeader("User-Agent", USER_AGENT);
+        addHeader("Content-Type", FORM_CONTENT_TYPE);
     }
 
     @Override
@@ -41,12 +47,12 @@ public final class HttpTransportClient implements TransportClient {
     }
 
     @Override
-    public ClientResponse post(String url, String body) throws IOException {
+    public ClientResponse post(String url, Map<String, Object> body) throws IOException {
         return doRequest(HttpMethod.POST, url, null, body);
     }
 
     @Override
-    public ClientResponse post(String url, String body, Map<String, Object> params) throws IOException {
+    public ClientResponse post(String url, Map<String, Object> body, Map<String, Object> params) throws IOException {
         return doRequest(HttpMethod.POST, url, params, body);
     }
 
@@ -60,7 +66,7 @@ public final class HttpTransportClient implements TransportClient {
     }
 
 
-    private ClientResponse doRequest(HttpMethod method, String url, Map<String, Object> params, String body) throws IOException {
+    private ClientResponse doRequest(HttpMethod method, String url, Map<String, Object> params, Map<String, Object> body) throws IOException {
 
         HttpRequest request;
 
@@ -79,13 +85,13 @@ public final class HttpTransportClient implements TransportClient {
         }
 
 
-            if (body != null && !body.isEmpty() && request instanceof HttpRequestWithBody) {
-                ((HttpRequestWithBody) request).body(params);
-            }
+        if (body != null && !body.isEmpty() && request instanceof HttpRequestWithBody) {
+            ((HttpRequestWithBody) request).fields(body);
+        }
 
-            if (params != null && !params.isEmpty()) {
-                request.queryString(params);
-            }
+        if (params != null && !params.isEmpty()) {
+            request.queryString(params);
+        }
 
         try {
             HttpResponse<String> response = request.headers(headers).asString();

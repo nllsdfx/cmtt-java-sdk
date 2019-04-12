@@ -139,7 +139,7 @@ public abstract class ApiRequest<T> {
      *
      * @return string representation of body
      */
-    public abstract String buildBody();
+    public abstract Map<String, Object> buildBody();
 
     /**
      * If url has path params, e.g. user/{id}, replaces them with real params

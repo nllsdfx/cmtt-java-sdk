@@ -8,6 +8,7 @@ import ru.tjournal.api.sdk.model.Sign;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Map;
 
 /**
  * Query to like an entry (article).
@@ -44,7 +45,7 @@ public class EntryLikeQuery extends QueryBuilder<EntryLikeQuery, Likes> {
     }
 
     @Override
-    public String buildBody() {
+    public Map<String, Object> buildBody() {
         return null; // this post method doesn't need body, need to improve api later
     }
 }

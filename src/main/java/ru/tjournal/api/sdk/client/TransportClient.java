@@ -15,9 +15,9 @@ public interface TransportClient {
 
     ClientResponse post(String url) throws IOException;
 
-    ClientResponse post(String url, String body) throws IOException;
+    ClientResponse post(String url, Map<String, Object> body) throws IOException;
 
-    ClientResponse post(String url, String body, Map<String, Object> params) throws IOException;
+    ClientResponse post(String url, Map<String, Object> body, Map<String, Object> params) throws IOException;
 
     void addHeader(String key, String value);
 
