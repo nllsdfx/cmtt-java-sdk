@@ -12,6 +12,7 @@ import java.util.Collections;
 /**
  * Query to like an entry (article).
  */
+// todo not working for v1.6 (api is not properly described)
 public class EntryLikeQuery extends QueryBuilder<EntryLikeQuery, Likes> {
 
     public EntryLikeQuery(TJApiClient client) {
