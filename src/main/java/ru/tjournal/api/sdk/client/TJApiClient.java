@@ -64,6 +64,10 @@ public class TJApiClient {
         return new Entries(this);
     }
 
+    public Subsites subsites() {
+        return new Subsites(this);
+    }
+
     public Tweets tweets() {
         return new Tweets(this);
     }
