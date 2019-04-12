@@ -2,10 +2,7 @@ package ru.tjournal.api.sdk.action;
 
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.query.comments.CommentGetQuery;
-import ru.tjournal.api.sdk.query.entry.EntriesGetPopularQuery;
-import ru.tjournal.api.sdk.query.entry.EntryCreateQuery;
-import ru.tjournal.api.sdk.query.entry.EntryGetQuery;
-import ru.tjournal.api.sdk.query.entry.EntryLikeQuery;
+import ru.tjournal.api.sdk.query.entry.*;
 
 public class Entries extends Action {
 
@@ -27,6 +24,10 @@ public class Entries extends Action {
 
     public EntryCreateQuery create() {
         return new EntryCreateQuery(getClient());
+    }
+
+    public EntryLocateQuery locate() {
+        return new EntryLocateQuery(getClient());
     }
 
     public CommentGetQuery comments(String entryId) {
