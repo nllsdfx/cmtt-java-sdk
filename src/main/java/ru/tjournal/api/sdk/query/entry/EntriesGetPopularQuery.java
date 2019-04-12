@@ -1,25 +1,26 @@
-package ru.tjournal.api.sdk.query.comments;
+package ru.tjournal.api.sdk.query.entry;
 
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
+import ru.tjournal.api.sdk.util.Utils;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
-public class EntryGetQuery extends QueryBuilder<EntryGetQuery, Entry> {
+public class EntriesGetPopularQuery extends QueryBuilder<EntriesGetPopularQuery, List<Entry>> {
 
-
-    public EntryGetQuery(TJApiClient client) {
-        super(client, "entry/{id}", Entry.class);
+    public EntriesGetPopularQuery(TJApiClient client) {
+        super(client, "entry/{id}/popular", Utils.buildParametrizedType(List.class, Entry.class));
     }
 
-    public EntryGetQuery by(String id) {
+    public EntriesGetPopularQuery id(String id) {
         return unsafePath("id", id);
     }
 
     @Override
-    protected EntryGetQuery _this() {
+    protected EntriesGetPopularQuery _this() {
         return this;
     }
 

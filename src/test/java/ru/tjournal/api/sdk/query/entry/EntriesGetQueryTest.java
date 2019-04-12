@@ -1,4 +1,4 @@
-package ru.tjournal.api.sdk.query.comments;
+package ru.tjournal.api.sdk.query.entry;
 
 import org.junit.Assert;
 import org.junit.Test;
