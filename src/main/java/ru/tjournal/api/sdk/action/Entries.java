@@ -30,7 +30,4 @@ public class Entries extends Action {
         return new EntryLocateQuery(getClient());
     }
 
-    public CommentGetQuery comments(String entryId) {
-        return new CommentGetQuery(getClient(), entryId);
-    }
 }

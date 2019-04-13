@@ -72,6 +72,10 @@ public class TJApiClient {
         return new Tweets(this);
     }
 
+    public Comments comments() {
+        return new Comments(this);
+    }
+
     public Gson getGson() {
         return gson;
     }

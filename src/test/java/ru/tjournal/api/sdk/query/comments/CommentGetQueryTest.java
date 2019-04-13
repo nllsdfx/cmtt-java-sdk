@@ -38,7 +38,7 @@ public class CommentGetQueryTest {
 
         TJApiClient client = new TJApiClient("test");
 
-        List<Comment> comments = client.entries().comments("93120").sorting("popular").execute();
+        List<Comment> comments = client.comments().getBy("93120").sorting("popular").execute();
 
         assertNotNull(comments);
         assertFalse(comments.isEmpty());
@@ -53,7 +53,7 @@ public class CommentGetQueryTest {
         }
 
         // has to throw exception (comments are closed for the invalid token "test")
-        client.entries().comments("93076").sorting("recent").execute();
+        client.comments().getBy("93076").sorting("recent").execute();
 
     }
 
