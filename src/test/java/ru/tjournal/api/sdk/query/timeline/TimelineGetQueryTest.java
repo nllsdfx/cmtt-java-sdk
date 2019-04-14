@@ -49,7 +49,9 @@ public class TimelineGetQueryTest {
 
     @Test
     @Category(IntegrationTest.class)
-    public void TimelineGetIntegrationTest() throws ClientException, ApiException {
+    public void TimelineGetIntegrationTest() throws ClientException, ApiException, InterruptedException {
+
+        Thread.sleep(1000); // tj says no more than 3 calls per second... simple workaround for now
 
         TJApiClient client = new TJApiClient("test_token");
 
