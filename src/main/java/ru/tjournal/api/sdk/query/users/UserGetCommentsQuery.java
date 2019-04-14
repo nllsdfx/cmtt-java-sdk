@@ -12,7 +12,11 @@ import java.util.List;
 public class UserGetCommentsQuery extends QueryBuilder<UserGetCommentsQuery, List<Comment>> {
 
     public UserGetCommentsQuery(TJApiClient client) {
-        super(client, "user/{id}/comments", Utils.buildParametrizedType(List.class, Comment.class));
+        this(client, "user/{id}/comments");
+    }
+
+    protected UserGetCommentsQuery(TJApiClient client, String method) {
+        super(client, method, Utils.buildParametrizedType(List.class, Comment.class));
     }
 
     public UserGetCommentsQuery of(String userId) {
