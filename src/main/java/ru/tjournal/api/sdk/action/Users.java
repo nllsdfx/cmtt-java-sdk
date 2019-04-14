@@ -25,4 +25,8 @@ public class Users extends Action {
     public UserGetMeUpdates meUpdates() {
         return new UserGetMeUpdates(getClient());
     }
+
+    public UserGetMeUpdatesCount meUpdatesCount() {
+        return new UserGetMeUpdatesCount(getClient());
+    }
 }
