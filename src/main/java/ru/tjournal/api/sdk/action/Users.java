@@ -1,10 +1,7 @@
 package ru.tjournal.api.sdk.action;
 
 import ru.tjournal.api.sdk.client.TJApiClient;
-import ru.tjournal.api.sdk.query.users.UserGetMeUpdates;
-import ru.tjournal.api.sdk.query.users.UserGetMeUpdatesCountQuery;
-import ru.tjournal.api.sdk.query.users.UsersGetMeQuery;
-import ru.tjournal.api.sdk.query.users.UsersGetQuery;
+import ru.tjournal.api.sdk.query.users.*;
 
 /**
  * Entries point for users api
@@ -29,5 +26,9 @@ public class Users extends Action {
 
     public UserGetMeUpdatesCountQuery meUpdatesCount() {
         return new UserGetMeUpdatesCountQuery(getClient());
+    }
+
+    public UserMeMarkUpdatesReadQuery markUpdatesAsRead() {
+        return new UserMeMarkUpdatesReadQuery(getClient());
     }
 }
