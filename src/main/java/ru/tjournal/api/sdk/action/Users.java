@@ -31,4 +31,8 @@ public class Users extends Action {
     public UserMeMarkUpdatesReadQuery markUpdatesAsRead() {
         return new UserMeMarkUpdatesReadQuery(getClient());
     }
+
+    public UserGetCommentsQuery comments() {
+        return new UserGetCommentsQuery(getClient());
+    }
 }
