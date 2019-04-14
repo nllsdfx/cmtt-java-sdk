@@ -5,6 +5,7 @@ import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
 import ru.tjournal.api.sdk.util.Utils;
 
+import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,11 @@ import java.util.List;
 public class UserGetEntriesQuery extends QueryBuilder<UserGetEntriesQuery, List<Entry>> {
 
     public UserGetEntriesQuery(TJApiClient client) {
-        super(client, "user/{id}/entries", Utils.buildParametrizedType(List.class, Entry.class));
+        this(client, "user/{id}/entries");
+    }
+
+    protected UserGetEntriesQuery(TJApiClient client, String method) {
+        super(client, method, Utils.buildParametrizedType(List.class, Entry.class));
     }
 
     public UserGetEntriesQuery of(String userId) {
