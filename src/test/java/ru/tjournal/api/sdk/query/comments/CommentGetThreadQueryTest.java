@@ -10,7 +10,6 @@ import ru.tjournal.api.sdk.model.response.comment.Comment;
 import ru.tjournal.api.sdk.model.response.comment.CommentItems;
 import ru.tjournal.api.sdk.util.IntegrationTest;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

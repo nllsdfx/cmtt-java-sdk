@@ -79,7 +79,7 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
     public String buildPath() {
 
         if (!paths.keySet().containsAll(essentialPathKeys())) {
-            throw new IllegalArgumentException("Not all the keys are passed: essential keys are " + essentialKeys());
+            throw new IllegalArgumentException("Not all the keys are passed: essential keys are " + essentialPathKeys());
         }
 
         if (paths.isEmpty()) {

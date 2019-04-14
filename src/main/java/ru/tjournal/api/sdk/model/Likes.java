@@ -7,7 +7,7 @@ import lombok.Getter;
 public class Likes {
 
     long count;
-    long sum;
+    long summ;
 
     @SerializedName("is_liked")
     int isLiked;
