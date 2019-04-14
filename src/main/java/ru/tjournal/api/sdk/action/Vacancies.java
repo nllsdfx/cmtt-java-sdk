@@ -4,6 +4,7 @@ import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.query.vacancies.VacancyGetFiltersQuery;
 import ru.tjournal.api.sdk.query.vacancies.VacancyGetQuery;
 import ru.tjournal.api.sdk.query.vacancies.VacancyLoadMoreQuery;
+import ru.tjournal.api.sdk.query.vacancies.VacancyWidgetQuery;
 
 public class Vacancies extends Action {
 
@@ -21,5 +22,9 @@ public class Vacancies extends Action {
 
     public VacancyGetFiltersQuery getFilters() {
         return new VacancyGetFiltersQuery(getClient());
+    }
+
+    public VacancyWidgetQuery widget() {
+        return new VacancyWidgetQuery(getClient());
     }
 }
