@@ -39,4 +39,8 @@ public class Users extends Action {
     public UserGetMeCommentsQuery meComments() {
         return new UserGetMeCommentsQuery(getClient());
     }
+
+    public UserGetEntriesQuery entries() {
+        return new UserGetEntriesQuery(getClient());
+    }
 }
