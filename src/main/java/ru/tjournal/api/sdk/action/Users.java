@@ -43,4 +43,8 @@ public class Users extends Action {
     public UserGetEntriesQuery entries() {
         return new UserGetEntriesQuery(getClient());
     }
+
+    public UserGetMeEntriesQuery meEntries() {
+        return new UserGetMeEntriesQuery(getClient());
+    }
 }
