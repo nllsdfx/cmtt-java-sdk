@@ -1,6 +1,7 @@
 package ru.tjournal.api.sdk.query.users;
 
 import com.mashape.unirest.http.HttpMethod;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.Notification;
@@ -16,7 +17,7 @@ import java.util.Map;
  */
 public class UserMeMarkUpdatesReadQuery extends QueryBuilder<UserMeMarkUpdatesReadQuery, List<Notification>> {
 
-    public UserMeMarkUpdatesReadQuery(TJApiClient client) {
+    public UserMeMarkUpdatesReadQuery(ApiClient client) {
         super(client, "user/me/updates/read", Utils.buildParametrizedType(List.class, Notification.class));
         setHttpMethod(HttpMethod.POST);
     }

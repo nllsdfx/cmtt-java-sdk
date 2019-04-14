@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.timeline;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class TimelineNewsQuery extends QueryBuilder<TimelineNewsQuery, List<Entry>> {
 
-    public TimelineNewsQuery(TJApiClient client) {
+    public TimelineNewsQuery(ApiClient client) {
         super(client, "news/default/recent", Utils.buildParametrizedType(List.class, Entry.class));
     }
 

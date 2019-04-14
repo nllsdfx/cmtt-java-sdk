@@ -1,8 +1,8 @@
 package ru.tjournal.api.sdk.query.entry;
 
 import com.mashape.unirest.http.HttpMethod;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
 
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class EntryCreateQuery extends QueryBuilder<EntryCreateQuery, Entry> {
 
-    public EntryCreateQuery(TJApiClient client) {
+    public EntryCreateQuery(ApiClient client) {
         super(client, "entry/create", Entry.class);
         setHttpMethod(HttpMethod.POST);
     }

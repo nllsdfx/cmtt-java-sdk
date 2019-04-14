@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.timeline;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class TimelineByHashtagQuery extends QueryBuilder<TimelineByHashtagQuery, List<Entry>> {
 
-    public TimelineByHashtagQuery(TJApiClient client) {
+    public TimelineByHashtagQuery(ApiClient client) {
         super(client, "timeline/mainpage", Utils.buildParametrizedType(List.class, Entry.class));
     }
 

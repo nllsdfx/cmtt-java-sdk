@@ -1,6 +1,7 @@
 package ru.tjournal.api.sdk.query.comments;
 
 import com.mashape.unirest.http.HttpMethod;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 
@@ -10,7 +11,7 @@ import java.util.Collections;
 import java.util.Map;
 
 public class CommentEditQuery extends QueryBuilder<CommentEditQuery, String> {
-    public CommentEditQuery(TJApiClient client) {
+    public CommentEditQuery(ApiClient client) {
         super(client, "comment/edit/{commentId}/{entryId}", String.class);
         setHttpMethod(HttpMethod.POST);
     }

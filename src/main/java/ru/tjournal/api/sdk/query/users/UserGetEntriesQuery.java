@@ -1,22 +1,21 @@
 package ru.tjournal.api.sdk.query.users;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
 import ru.tjournal.api.sdk.util.Utils;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class UserGetEntriesQuery extends QueryBuilder<UserGetEntriesQuery, List<Entry>> {
 
-    public UserGetEntriesQuery(TJApiClient client) {
+    public UserGetEntriesQuery(ApiClient client) {
         this(client, "user/{id}/entries");
     }
 
-    protected UserGetEntriesQuery(TJApiClient client, String method) {
+    protected UserGetEntriesQuery(ApiClient client, String method) {
         super(client, method, Utils.buildParametrizedType(List.class, Entry.class));
     }
 

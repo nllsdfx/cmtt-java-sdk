@@ -1,11 +1,11 @@
 package ru.tjournal.api.sdk.action;
 
-import ru.tjournal.api.sdk.client.TJApiClient;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.query.vacancies.VacancyGetQuery;
 
 public class Vacancies extends Action {
 
-    public Vacancies(TJApiClient client) {
+    public Vacancies(ApiClient client) {
         super(client);
     }
 

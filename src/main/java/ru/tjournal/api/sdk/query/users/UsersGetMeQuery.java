@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.users;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.users.UserGetResponse;
@@ -9,7 +10,7 @@ import java.util.Collections;
 
 public class UsersGetMeQuery extends QueryBuilder<UsersGetMeQuery, UserGetResponse> {
 
-    public UsersGetMeQuery(TJApiClient client) {
+    public UsersGetMeQuery(ApiClient client) {
         super(client, "user/me", UserGetResponse.class);
     }
 

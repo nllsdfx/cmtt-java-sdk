@@ -1,7 +1,7 @@
 package ru.tjournal.api.sdk.query.users;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.users.UserGetResponse;
 
 import java.util.Collection;
@@ -13,7 +13,7 @@ import java.util.Collections;
 public class UsersGetQuery extends QueryBuilder<UsersGetQuery, UserGetResponse> {
 
 
-    public UsersGetQuery(TJApiClient client) {
+    public UsersGetQuery(ApiClient client) {
         super(client, "user/{id}", UserGetResponse.class);
     }
 

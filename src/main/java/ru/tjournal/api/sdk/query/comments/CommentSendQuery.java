@@ -1,8 +1,8 @@
 package ru.tjournal.api.sdk.query.comments;
 
 import com.mashape.unirest.http.HttpMethod;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.comment.Comment;
 
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class CommentSendQuery extends QueryBuilder<CommentSendQuery, Comment> {
 
-    public CommentSendQuery(TJApiClient client) {
+    public CommentSendQuery(ApiClient client) {
         super(client, "comment/add", Comment.class);
         setHttpMethod(HttpMethod.POST);
         replyTo("0"); // by default we don't reply to anyone

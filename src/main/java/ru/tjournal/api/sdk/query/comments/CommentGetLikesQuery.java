@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.comments;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.Liker;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class CommentGetLikesQuery extends QueryBuilder<CommentGetLikesQuery, Map<String, Liker>> {
 
 
-    public CommentGetLikesQuery(TJApiClient client) {
+    public CommentGetLikesQuery(ApiClient client) {
         super(client, "comment/likers/{id}", Utils.buildParametrizedType(Map.class, String.class, Liker.class));
     }
 

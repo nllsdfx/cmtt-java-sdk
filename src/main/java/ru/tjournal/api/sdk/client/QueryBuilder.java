@@ -27,7 +27,7 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
      * @param method api method name
      * @param type   type of method response
      */
-    protected QueryBuilder(TJApiClient client, String method, Type type) {
+    protected QueryBuilder(ApiClient client, String method, Type type) {
         super(client.getTransportClient(), client.getGson(), type, client.getErrorRetryAttempts());
         this.url = client.getApiEndpoint() + client.getApiVersion() + method;
     }

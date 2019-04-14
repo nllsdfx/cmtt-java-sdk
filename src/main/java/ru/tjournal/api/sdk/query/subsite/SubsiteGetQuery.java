@@ -1,7 +1,7 @@
 package ru.tjournal.api.sdk.query.subsite;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.Subsite;
 
 import java.util.Collection;
@@ -10,7 +10,7 @@ import java.util.Collections;
 public class SubsiteGetQuery extends QueryBuilder<SubsiteGetQuery, Subsite> {
 
 
-    public SubsiteGetQuery(TJApiClient client) {
+    public SubsiteGetQuery(ApiClient client) {
         super(client, "subsite/{id}", Subsite.class);
     }
 

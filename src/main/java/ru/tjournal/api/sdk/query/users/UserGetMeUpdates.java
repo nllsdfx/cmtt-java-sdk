@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.users;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.Notification;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class UserGetMeUpdates extends QueryBuilder<UserGetMeUpdates, List<Notification>> {
 
-    public UserGetMeUpdates(TJApiClient client) {
+    public UserGetMeUpdates(ApiClient client) {
         super(client, "user/me/updates", Utils.buildParametrizedType(List.class, Notification.class));
     }
 

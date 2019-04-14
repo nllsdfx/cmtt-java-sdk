@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.users;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.comment.Comment;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class UserGetMeCommentsQuery extends QueryBuilder<UserGetMeCommentsQuery, List<Comment>> {
 
-    public UserGetMeCommentsQuery(TJApiClient client) {
+    public UserGetMeCommentsQuery(ApiClient client) {
         super(client, "user/me/comments", Utils.buildParametrizedType(List.class, Comment.class));
     }
 

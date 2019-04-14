@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.users;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.Count;
@@ -12,7 +13,7 @@ import java.util.Collections;
  */
 public class UserGetMeUpdatesCountQuery extends QueryBuilder<UserGetMeUpdatesCountQuery, Count> {
 
-    public UserGetMeUpdatesCountQuery(TJApiClient client) {
+    public UserGetMeUpdatesCountQuery(ApiClient client) {
         super(client, "user/me/updates/count", Count.class);
     }
 

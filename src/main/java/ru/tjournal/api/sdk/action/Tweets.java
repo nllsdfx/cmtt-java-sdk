@@ -1,11 +1,11 @@
 package ru.tjournal.api.sdk.action;
 
-import ru.tjournal.api.sdk.client.TJApiClient;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.query.tweets.TweetsGetQuery;
 
 public class Tweets extends Action {
 
-    public Tweets(TJApiClient client) {
+    public Tweets(ApiClient client) {
         super(client);
     }
 

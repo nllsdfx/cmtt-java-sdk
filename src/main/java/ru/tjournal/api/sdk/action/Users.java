@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.action;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.query.users.*;
 
@@ -8,7 +9,7 @@ import ru.tjournal.api.sdk.query.users.*;
  */
 public class Users extends Action {
 
-    public Users(TJApiClient client) {
+    public Users(ApiClient client) {
         super(client);
     }
 

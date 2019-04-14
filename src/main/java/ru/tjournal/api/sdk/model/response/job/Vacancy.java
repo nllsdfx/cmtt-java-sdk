@@ -29,7 +29,5 @@ public class Vacancy {
     private int favoritesCount;
     private boolean isFavorited;
     private Company company;
-    @SerializedName("last_id")
-    private String lastId;
 
 }

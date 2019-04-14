@@ -1,7 +1,7 @@
 package ru.tjournal.api.sdk.query.comments;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.comment.Comment;
 import ru.tjournal.api.sdk.util.Utils;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CommentGetQuery extends QueryBuilder<CommentGetQuery, List<Comment>> {
 
-    public CommentGetQuery(TJApiClient client, String entryId) {
+    public CommentGetQuery(ApiClient client, String entryId) {
         super(client, "entry/{id}/comments/{sorting}", Utils.buildParametrizedType(List.class, Comment.class));
         entryId(entryId);
     }

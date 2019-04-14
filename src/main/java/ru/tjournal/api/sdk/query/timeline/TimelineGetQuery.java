@@ -1,7 +1,7 @@
 package ru.tjournal.api.sdk.query.timeline;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.response.entry.Entry;
 import ru.tjournal.api.sdk.util.Utils;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TimelineGetQuery extends QueryBuilder<TimelineGetQuery, List<Entry>> {
 
-    public TimelineGetQuery(TJApiClient client) {
+    public TimelineGetQuery(ApiClient client) {
         super(client, "timeline/{category}/{sorting}", Utils.buildParametrizedType(List.class, Entry.class));
     }
 

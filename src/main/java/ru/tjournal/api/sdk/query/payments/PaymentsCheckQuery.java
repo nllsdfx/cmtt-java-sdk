@@ -1,5 +1,6 @@
 package ru.tjournal.api.sdk.query.payments;
 
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
 import ru.tjournal.api.sdk.client.TJApiClient;
 
@@ -8,7 +9,7 @@ import java.util.Collections;
 
 public class PaymentsCheckQuery extends QueryBuilder<PaymentsCheckQuery, Boolean> {
 
-    public PaymentsCheckQuery(TJApiClient client) {
+    public PaymentsCheckQuery(ApiClient client) {
         super(client, "payments/check", Boolean.class);
     }
 

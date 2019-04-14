@@ -1,12 +1,11 @@
 package ru.tjournal.api.sdk.action;
 
-import ru.tjournal.api.sdk.client.TJApiClient;
-import ru.tjournal.api.sdk.query.comments.CommentGetQuery;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.query.entry.*;
 
 public class Entries extends Action {
 
-    public Entries(TJApiClient client) {
+    public Entries(ApiClient client) {
         super(client);
     }
 

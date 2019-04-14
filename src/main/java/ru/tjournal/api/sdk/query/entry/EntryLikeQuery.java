@@ -1,8 +1,8 @@
 package ru.tjournal.api.sdk.query.entry;
 
 import com.mashape.unirest.http.HttpMethod;
+import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.client.QueryBuilder;
-import ru.tjournal.api.sdk.client.TJApiClient;
 import ru.tjournal.api.sdk.model.Likes;
 import ru.tjournal.api.sdk.model.Sign;
 
@@ -16,7 +16,7 @@ import java.util.Map;
 // todo not working for v1.6 (api is not properly described)
 public class EntryLikeQuery extends QueryBuilder<EntryLikeQuery, Likes> {
 
-    public EntryLikeQuery(TJApiClient client) {
+    public EntryLikeQuery(ApiClient client) {
         super(client, "entry/{id}/likes", Likes.class);
         setHttpMethod(HttpMethod.POST);
     }
