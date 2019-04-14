@@ -28,7 +28,9 @@ public class TimelineByHashtagQueryTest {
 
     @Test
     @Category(IntegrationTest.class)
-    public void integration() throws ClientException, ApiException {
+    public void integration() throws ClientException, ApiException, InterruptedException {
+
+        Thread.sleep(500);
 
         TJApiClient apiClient = new TJApiClient("test");
 
