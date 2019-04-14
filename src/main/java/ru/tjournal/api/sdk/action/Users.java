@@ -1,6 +1,7 @@
 package ru.tjournal.api.sdk.action;
 
 import ru.tjournal.api.sdk.client.TJApiClient;
+import ru.tjournal.api.sdk.query.users.UserGetMeUpdates;
 import ru.tjournal.api.sdk.query.users.UsersGetMeQuery;
 import ru.tjournal.api.sdk.query.users.UsersGetQuery;
 
@@ -19,5 +20,9 @@ public class Users extends Action {
 
     public UsersGetMeQuery me() {
         return new UsersGetMeQuery(getClient());
+    }
+
+    public UserGetMeUpdates meUpdates() {
+        return new UserGetMeUpdates(getClient());
     }
 }
