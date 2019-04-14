@@ -76,6 +76,10 @@ public class TJApiClient {
         return new Comments(this);
     }
 
+    public Vacancies vacancies() {
+        return new Vacancies(this);
+    }
+
     public Gson getGson() {
         return gson;
     }
