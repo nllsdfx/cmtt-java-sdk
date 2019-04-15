@@ -69,6 +69,10 @@ public abstract class ApiClient {
         return new Widgets(this);
     }
 
+    public Layout layout() {
+        return new Layout(this);
+    }
+
     public int getErrorRetryAttempts() {
         return errorRetryAttempts;
     }

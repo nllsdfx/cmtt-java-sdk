@@ -16,10 +16,11 @@ public class SubsiteTimelineQueryTest {
 
     @Test
     @Category(IntegrationTest.class)
-    public void integration() throws ClientException, ApiException {
+    public void integration() throws ClientException, ApiException, InterruptedException {
         TJApiClient client = new TJApiClient("tst");
         String subsiteId = client.entries().get().by("93603").execute().getSubsite().getId();
         assertNotNull(subsiteId);
+        Thread.sleep(500);
         List<Entry> entries = client.subsites().timeline().id(subsiteId).sorting("new").count(5).execute();
         assertNotNull(entries);
         assertEquals(5, entries.size());

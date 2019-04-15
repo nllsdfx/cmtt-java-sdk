@@ -1,7 +1,6 @@
 package ru.tjournal.api.sdk.model.response.entry;
 
 import lombok.Data;
-import lombok.Getter;
 import ru.tjournal.api.sdk.model.*;
 import ru.tjournal.api.sdk.model.response.comment.Comment;
 
@@ -39,10 +38,4 @@ public class Entry {
 
 
 
-
-    @Getter
-    public static class EntryContent {
-        private String html;
-        private String version;
-    }
 }
