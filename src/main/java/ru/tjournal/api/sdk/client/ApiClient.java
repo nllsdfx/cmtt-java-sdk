@@ -65,6 +65,10 @@ public abstract class ApiClient {
         return new Comments(this);
     }
 
+    public Widgets widgets() {
+        return new Widgets(this);
+    }
+
     public int getErrorRetryAttempts() {
         return errorRetryAttempts;
     }
