@@ -27,8 +27,8 @@ public class SubsiteGetQueryTest {
 
     @Test
     @Category(IntegrationTest.class)
-    public void integration() throws ClientException, ApiException {
-
+    public void integration() throws ClientException, ApiException, InterruptedException {
+        Thread.sleep(1000);
         TJApiClient client = new TJApiClient("test");
         List<Entry> list = client.timeline().timeLineNews().count(1).execute();
         assertNotNull(list);

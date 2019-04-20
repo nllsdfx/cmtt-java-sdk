@@ -16,7 +16,8 @@ public class UserGetFavoriteEntriesTest {
 
     @Test
     @Category(IntegrationTest.class)
-    public void integration() throws ClientException, ApiException {
+    public void integration() throws ClientException, ApiException, InterruptedException {
+        Thread.sleep(1000);
         TJApiClient client = new TJApiClient("test");
         List<Entry> entries = client.users().favoriteEntries().of("2").count(1).offset(1).execute();
         assertNotNull(entries);
