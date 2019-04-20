@@ -29,5 +29,9 @@ public class Comments extends Action {
         return new CommentGetThreadQuery(getClient());
     }
 
+    public CommentSaveSeenCountQuery saveSeen() {
+        return new CommentSaveSeenCountQuery(getClient());
+    }
+
 
 }
