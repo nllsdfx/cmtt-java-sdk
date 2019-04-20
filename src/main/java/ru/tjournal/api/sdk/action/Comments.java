@@ -33,5 +33,9 @@ public class Comments extends Action {
         return new CommentSaveSeenCountQuery(getClient());
     }
 
+    public CommentLevelsGetQuery commentsLevels() {
+        return new CommentLevelsGetQuery(getClient());
+    }
+
 
 }
