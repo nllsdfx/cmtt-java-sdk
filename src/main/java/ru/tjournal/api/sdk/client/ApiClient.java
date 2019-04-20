@@ -73,6 +73,10 @@ public abstract class ApiClient {
         return new Layout(this);
     }
 
+    public Uploads uploads() {
+        return new Uploads(this);
+    }
+
     public int getErrorRetryAttempts() {
         return errorRetryAttempts;
     }

@@ -20,7 +20,6 @@ import java.util.Map;
 public final class HttpTransportClient implements TransportClient {
 
     private static final String USER_AGENT = "Java TJ SDK/1.0-SNAPSHOT";
-    private static final String FORM_CONTENT_TYPE = "application/x-www-form-urlencoded";
 
 
     private final Map<String, String> headers;
@@ -28,7 +27,6 @@ public final class HttpTransportClient implements TransportClient {
     private HttpTransportClient() {
         headers = new HashMap<>();
         addHeader("User-Agent", USER_AGENT);
-        addHeader("Content-Type", FORM_CONTENT_TYPE);
     }
 
     @Override

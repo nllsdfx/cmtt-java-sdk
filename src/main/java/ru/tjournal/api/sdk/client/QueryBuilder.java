@@ -1,6 +1,7 @@
 package ru.tjournal.api.sdk.client;
 
 import javax.ws.rs.core.UriBuilder;
+import java.io.File;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Collections;
@@ -16,7 +17,7 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
 
     private final Map<String, String> paths = new HashMap<>();
 
-    private final Map<String, String> body = new HashMap<>();
+    private final Map<String, Object> body = new HashMap<>();
 
     private final String url;
 
@@ -47,6 +48,11 @@ public abstract class QueryBuilder<R, T> extends ApiRequest<T> {
     protected R unsafeParam(String key, String value) {
         params.put(key, value);
         body.put(key, value);
+        return _this();
+    }
+
+    protected R unsafeParam(String key, File file) {
+        body.put(key, file);
         return _this();
     }
 
