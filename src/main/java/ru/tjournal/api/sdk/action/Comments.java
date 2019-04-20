@@ -37,5 +37,9 @@ public class Comments extends Action {
         return new CommentLevelsGetQuery(getClient());
     }
 
+    public CommentsLevelsPostQuery commentsLevelsPost() {
+        return new CommentsLevelsPostQuery(getClient());
+    }
+
 
 }
