@@ -77,6 +77,10 @@ public abstract class ApiClient {
         return new Uploads(this);
     }
 
+    public Authorization auth() {
+        return new Authorization(this);
+    }
+
     public int getErrorRetryAttempts() {
         return errorRetryAttempts;
     }
