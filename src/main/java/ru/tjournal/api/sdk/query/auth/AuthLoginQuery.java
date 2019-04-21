@@ -36,8 +36,4 @@ public class AuthLoginQuery extends AbstractAuthQuery<AuthLoginQuery> {
         return Collections.emptyList();
     }
 
-    @Override
-    public Map<String, Object> buildParams() {
-        return null;
-    }
 }

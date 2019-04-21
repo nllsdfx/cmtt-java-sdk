@@ -30,9 +30,4 @@ public class AuthQRQuery extends AbstractAuthQuery<AuthQRQuery> {
     protected Collection<String> essentialPathKeys() {
         return Collections.emptyList();
     }
-
-    @Override
-    public Map<String, Object> buildParams() {
-        return  null;
-    }
 }
