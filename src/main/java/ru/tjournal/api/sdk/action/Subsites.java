@@ -1,10 +1,7 @@
 package ru.tjournal.api.sdk.action;
 
 import ru.tjournal.api.sdk.client.ApiClient;
-import ru.tjournal.api.sdk.query.subsite.SubsiteGetQuery;
-import ru.tjournal.api.sdk.query.subsite.SubsiteListQuery;
-import ru.tjournal.api.sdk.query.subsite.SubsiteSubscribeQuery;
-import ru.tjournal.api.sdk.query.subsite.SubsiteTimelineQuery;
+import ru.tjournal.api.sdk.query.subsite.*;
 
 public class Subsites extends Action {
 
@@ -26,5 +23,9 @@ public class Subsites extends Action {
 
     public SubsiteSubscribeQuery subscribe() {
         return new SubsiteSubscribeQuery(getClient());
+    }
+
+    public SubsiteUnsubscribeQuery unsubscribe() {
+        return new SubsiteUnsubscribeQuery(getClient());
     }
 }
