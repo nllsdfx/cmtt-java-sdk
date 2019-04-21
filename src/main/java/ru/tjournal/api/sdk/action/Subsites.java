@@ -2,6 +2,7 @@ package ru.tjournal.api.sdk.action;
 
 import ru.tjournal.api.sdk.client.ApiClient;
 import ru.tjournal.api.sdk.query.subsite.SubsiteGetQuery;
+import ru.tjournal.api.sdk.query.subsite.SubsiteListQuery;
 import ru.tjournal.api.sdk.query.subsite.SubsiteTimelineQuery;
 
 public class Subsites extends Action {
@@ -16,5 +17,9 @@ public class Subsites extends Action {
 
     public SubsiteTimelineQuery timeline() {
         return new SubsiteTimelineQuery(getClient());
+    }
+
+    public SubsiteListQuery list() {
+        return new SubsiteListQuery(getClient());
     }
 }
