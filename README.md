@@ -1,4 +1,4 @@
-# TJOURNAL JAVA API SDK
+# Comitet JAVA API SDK
 
 Java library for TJ, VC and DTF API interaction. Uses API version 1.6.
 
