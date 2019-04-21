@@ -1,6 +1,5 @@
 package ru.tjournal.api.sdk.query.auth;
 
-import com.mashape.unirest.http.HttpMethod;
 import ru.tjournal.api.sdk.client.ApiClient;
 
 import java.util.Collection;
@@ -11,7 +10,6 @@ public class AuthQRQuery extends AbstractAuthQuery<AuthQRQuery> {
 
     public AuthQRQuery(ApiClient client) {
         super(client, "auth/qr");
-        setHttpMethod(HttpMethod.POST);
     }
 
     public AuthQRQuery token(String token) {
