@@ -81,6 +81,10 @@ public abstract class ApiClient {
         return new Authorization(this);
     }
 
+    public Blacklist blacklist() {
+        return new Blacklist(this);
+    }
+
     public int getErrorRetryAttempts() {
         return errorRetryAttempts;
     }
