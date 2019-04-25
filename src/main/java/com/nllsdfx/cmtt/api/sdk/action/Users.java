@@ -55,4 +55,8 @@ public class Users extends Action {
     public UserGetFavoriteComments favoriteComments() {
         return new UserGetFavoriteComments(getClient());
     }
+
+    public UserGetMeRecommendedSubscriptionsQuery recommendedSubscriptions() {
+        return new UserGetMeRecommendedSubscriptionsQuery(getClient());
+    }
 }
