@@ -21,5 +21,8 @@ public class CommentLevelsGetQueryTest {
         CommentItems items = apiClient.comments().commentsLevels().entryId("94266").sorting(CommentsSorting.POPULAR).execute();
         assertNotNull(items);
         assertFalse(items.getItems().isEmpty());
+        CommentItems execute = apiClient.comments().commentsLevels().entryId("94266").sorting(CommentsSorting.DATE).execute();
+        assertNotNull(execute);
+        assertFalse(execute.getItems().isEmpty());
     }
 }
