@@ -14,8 +14,8 @@ using it immediately run `mvn clean install` and add the dependency:
 
 ```xml
 <dependency>
-  <groupId>ru.cmtt.api</groupId>
-  <artifactId>sdk</artifactId>
+  <groupId>com.nllsdfx.api</groupId>
+  <artifactId>cmtt-sdk</artifactId>
   <version>LATEST_VERSION</version>
 </dependency>
 ```
@@ -24,7 +24,7 @@ Or with grade:
 
 ```groovy
 dependencies {
-  compile 'ru.cmtt.api:sdk:LATEST_VERSION'
+  compile 'com.nllsdfx.api:cmtt-sdk:LATEST_VERSION'
 }
 ```
 
