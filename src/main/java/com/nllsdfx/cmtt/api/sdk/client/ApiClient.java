@@ -85,6 +85,10 @@ public abstract class ApiClient {
         return new Blacklist(this);
     }
 
+    public Webhook webhook() {
+        return new Webhook(this);
+    }
+
     public int getErrorRetryAttempts() {
         return errorRetryAttempts;
     }
