@@ -2,9 +2,6 @@ package com.nllsdfx.cmtt.api.sdk.query.webhook;
 
 import com.nllsdfx.cmtt.api.sdk.client.ApiClient;
 import com.nllsdfx.cmtt.api.sdk.client.QueryBuilder;
-import com.nllsdfx.cmtt.api.sdk.client.TJApiClient;
-import com.nllsdfx.cmtt.api.sdk.exception.ApiException;
-import com.nllsdfx.cmtt.api.sdk.exception.ClientException;
 import com.nllsdfx.cmtt.api.sdk.model.response.webhook.Watcher;
 import com.nllsdfx.cmtt.api.sdk.util.Utils;
 
