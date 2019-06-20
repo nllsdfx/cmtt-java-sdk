@@ -20,7 +20,7 @@ using it immediately run `mvn clean install` and add the dependency:
 </dependency>
 ```
 
-Or with grade:
+Or with gradle:
 
 ```groovy
 dependencies {
